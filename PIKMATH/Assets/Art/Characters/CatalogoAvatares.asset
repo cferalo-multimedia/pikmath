@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b81057e48db7d34b903ffd08d9ddfef, type: 3}
+  m_Name: CatalogoAvatares
+  m_EditorClassIdentifier: Assembly-CSharp::AvatarCatalog
+  skins:
+  - {fileID: 21300000, guid: efa7977eefa8c6543bec062272716fe9, type: 3}
+  - {fileID: 21300000, guid: c63bffbb606d8a64e99150bc3cbb82d8, type: 3}
+  - {fileID: 21300000, guid: 04804f6a76af9964998daa24e5f779ec, type: 3}
+  - {fileID: 21300000, guid: 63610c870a95716499df05a1b062e09b, type: 3}
+  - {fileID: 21300000, guid: a6e637b41bab45c4caca9828936600c2, type: 3}
+  - {fileID: 21300000, guid: 556b8ba0af364064fa28a0aa4e3c4fcc, type: 3}
+  - {fileID: 21300000, guid: a375eb400c1e42d4fa12fb3551628850, type: 3}
+  - {fileID: 21300000, guid: 8f098cc03b17b1d47b60ee644d06c273, type: 3}
+  hairs:
+  - {fileID: 21300000, guid: b7ce77dca2f151b4aa298903957dbef4, type: 3}
+  - {fileID: 21300000, guid: 09ec91d201a6b354c9c8f38aa6b573a1, type: 3}
+  - {fileID: 21300000, guid: 6e272bd9ce1d87c4b8e09267d3052422, type: 3}
+  - {fileID: 21300000, guid: 9878467244aa3504481e7f0731b17c3c, type: 3}
+  - {fileID: 21300000, guid: ea8f33da2240c2847bcdec88097134a4, type: 3}
+  - {fileID: 21300000, guid: 91d27dcf4f26d214e890b6e4a1798b34, type: 3}
+  faces:
+  - {fileID: 21300000, guid: 18aae0b556f66c543993b0b5c2cb4c5e, type: 3}
+  - {fileID: 21300000, guid: d3d334d4b4503d1469597f3389dc6350, type: 3}
+  - {fileID: 21300000, guid: 57b7df05717157e4098bddfbae838319, type: 3}
+  - {fileID: 21300000, guid: f57b5569fc7fce54682572c337d7f0c6, type: 3}
+  - {fileID: 21300000, guid: 957a22a713357ff4aa9e97676f8624ff, type: 3}
+  - {fileID: 21300000, guid: 0174fb67c85dae344b2c94c6439d1f8d, type: 3}
+  - {fileID: 21300000, guid: c9572c17e98f3274c84b0cd558e70f99, type: 3}
+  - {fileID: 21300000, guid: 48e880fd62a6b884fb17c4369156d11b, type: 3}
+  - {fileID: 21300000, guid: 558660835e2e79f4986d6ae9a915b316, type: 3}
+  - {fileID: 21300000, guid: f390228fcf5ccc0408677b0b59787398, type: 3}
+  presets:
+  - {fileID: 21300000, guid: aa3ac13ec755e2744a3dc69c05458e37, type: 3}
+  - {fileID: 21300000, guid: 38d607accd080a84c8d3c2dab59c2080, type: 3}
+  - {fileID: 21300000, guid: a54c3ba8444de074bb9572dcb2a6347b, type: 3}
+  - {fileID: 21300000, guid: c72d650c365ab4d458740f94441b344d, type: 3}
+  - {fileID: 21300000, guid: 00a5b3a1b336d0a4e99abf1d1cd68d3b, type: 3}
+  - {fileID: 21300000, guid: 9520b052fd9a13f43a41d2c5c695aa7a, type: 3}

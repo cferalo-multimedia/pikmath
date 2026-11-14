@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: -2515902583823385168
     second: P4_Character_1_Hair_Variation_1_0
+  - first:
+      213: -8238988367296423120
+    second: P4_Character_1_Hair_Variation_1_1
+  - first:
+      213: -8534173424534077103
+    second: P4_Character_1_Hair_Variation_1_2
+  - first:
+      213: 1466170536480059046
+    second: P4_Character_1_Hair_Variation_1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,10 +125,10 @@ TextureImporter:
       name: P4_Character_1_Hair_Variation_1_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 26
-        width: 114
-        height: 90
+        x: 10
+        y: 75
+        width: 108
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,11 +143,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Hair_Variation_1_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 38
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03b98b26bbb39ad80800000000000000
+      internalID: -8238988367296423120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Hair_Variation_1_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 26
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15141138c76809980800000000000000
+      internalID: -8534173424534077103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Hair_Variation_1_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 26
+        width: 50
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aea907b552e85410800000000000000
+      internalID: 1466170536480059046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +224,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       P4_Character_1_Hair_Variation_1_0: -2515902583823385168
+      P4_Character_1_Hair_Variation_1_1: -8238988367296423120
+      P4_Character_1_Hair_Variation_1_2: -8534173424534077103
+      P4_Character_1_Hair_Variation_1_3: 1466170536480059046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

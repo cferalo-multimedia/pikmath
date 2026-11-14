@@ -5,6 +5,15 @@ TextureImporter:
   - first:
       213: 534258550086915794
     second: P4_Character_1_Face_Variation_6_0
+  - first:
+      213: 5884557274594811793
+    second: P4_Character_1_Face_Variation_6_1
+  - first:
+      213: 5652015473559964095
+    second: P4_Character_1_Face_Variation_6_2
+  - first:
+      213: 5758398028749277767
+    second: P4_Character_1_Face_Variation_6_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,10 +125,10 @@ TextureImporter:
       name: P4_Character_1_Face_Variation_6_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 25
-        width: 108
-        height: 79
+        x: 37
+        y: 61
+        width: 19
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,11 +143,77 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_6_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 61
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f1aacd9a52aa150800000000000000
+      internalID: 5884557274594811793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_6_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 47
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb98d86a02eff6e40800000000000000
+      internalID: 5652015473559964095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_6_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 33
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a09e27f70f9ef40800000000000000
+      internalID: 5758398028749277767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +224,9 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       P4_Character_1_Face_Variation_6_0: 534258550086915794
+      P4_Character_1_Face_Variation_6_1: 5884557274594811793
+      P4_Character_1_Face_Variation_6_2: 5652015473559964095
+      P4_Character_1_Face_Variation_6_3: 5758398028749277767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

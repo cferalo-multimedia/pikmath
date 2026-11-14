@@ -5,6 +5,21 @@ TextureImporter:
   - first:
       213: -3935039733511718726
     second: P4_Character_1_Face_Variation_5_0
+  - first:
+      213: 1194953669846911577
+    second: P4_Character_1_Face_Variation_5_1
+  - first:
+      213: -7449140810748404575
+    second: P4_Character_1_Face_Variation_5_2
+  - first:
+      213: -7782602236156619929
+    second: P4_Character_1_Face_Variation_5_3
+  - first:
+      213: 2191994613406274427
+    second: P4_Character_1_Face_Variation_5_4
+  - first:
+      213: -6116187614587696404
+    second: P4_Character_1_Face_Variation_5_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,10 +131,10 @@ TextureImporter:
       name: P4_Character_1_Face_Variation_5_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 25
-        width: 108
-        height: 79
+        x: 25
+        y: 51
+        width: 12
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,11 +149,121 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_5_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 59
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a46461804559010800000000000000
+      internalID: 1194953669846911577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_5_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 50
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1acd97d56e55f9890800000000000000
+      internalID: -7449140810748404575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_5_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 59
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76359bd0084aef390800000000000000
+      internalID: -7782602236156619929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_5_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 51
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7396a9bc778b6e10800000000000000
+      internalID: 2191994613406274427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P4_Character_1_Face_Variation_5_5
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 33
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea4bdcf4cfee1ba0800000000000000
+      internalID: -6116187614587696404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -149,6 +274,11 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       P4_Character_1_Face_Variation_5_0: -3935039733511718726
+      P4_Character_1_Face_Variation_5_1: 1194953669846911577
+      P4_Character_1_Face_Variation_5_2: -7449140810748404575
+      P4_Character_1_Face_Variation_5_3: -7782602236156619929
+      P4_Character_1_Face_Variation_5_4: 2191994613406274427
+      P4_Character_1_Face_Variation_5_5: -6116187614587696404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
