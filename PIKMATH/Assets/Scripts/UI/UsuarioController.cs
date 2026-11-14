@@ -30,7 +30,10 @@ public class UsuarioController : MonoBehaviour
     [SerializeField] TMP_Text messageText;
 
     [Header("Navegación")]
-    [Tooltip("Escena a la que vuelve al guardar o salir.")]
+    [Tooltip("Si está activado, al guardar o salir vuelve a la escena desde la que se entró (Ajustes o MenuPrincipal).")]
+    [SerializeField] bool returnToPreviousScene = true;
+
+    [Tooltip("Escena a la que vuelve si no se sabe cuál es la anterior (por ejemplo, al probar la escena directamente).")]
     [SerializeField] string returnScene = "Ajustes";
 
     AvatarData current;
@@ -157,10 +160,14 @@ public class UsuarioController : MonoBehaviour
     /// <summary>Sale sin guardar los cambios.</summary>
     public void Volver()
     {
+        string target = returnScene;
+        if (returnToPreviousScene && !string.IsNullOrEmpty(SceneHistory.Previous))
+            target = SceneHistory.Previous;
+
         if (transicion != null)
-            transicion.LoadSceneWithFade(returnScene);
+            transicion.LoadSceneWithFade(target);
         else
-            SceneManager.LoadScene(returnScene);
+            SceneManager.LoadScene(target);
     }
 
     // ===== Utilidades =====
