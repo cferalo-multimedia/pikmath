@@ -24,7 +24,13 @@ public class SeleccionNivelesController : MonoBehaviour
     // Guardar la selección y acceder al juego.
     private void IniciarNivel(int nivel)
     {
+        Debug.Log("MODO SELECCIONADO: " + GameSession.Mode);
+        Debug.Log("NIVEL SELECCIONADO: " + nivel);
+        Debug.Log("HAY SELECCIÓN: " + GameSession.HasSelection);
+
         GameSession.Select(GameSession.Mode, nivel);
+        Debug.Log("DESPUÉS DE GUARDAR: " + GameSession.Mode);
+        Debug.Log("SELECCIÓN GUARDADA: " + GameSession.HasSelection);
 
         SceneManager.LoadScene("Juego");
     }

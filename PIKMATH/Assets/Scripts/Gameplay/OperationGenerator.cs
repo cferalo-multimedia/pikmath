@@ -34,14 +34,23 @@ public static class OperationGenerator
     }
 
     // Sumas: a + b = r  (ej: 2 + 3, 4 + 1)
+    
     static MathOperation GenerateAddition(int maxResult)
     {
-        int result = Random.Range(2, maxResult + 1);   // 2..max
-        int a = Random.Range(1, result);               // 1..result-1 (evita "+ 0")
+        // El resultado puede estar entre 0 y el máximo.
+        int result = Random.Range(0, maxResult + 1);
+
+        // Permitimos que cualquiera de los dos sumandos sea 0.
+        int a = Random.Range(0, result + 1);
         int b = result - a;
 
-        return new MathOperation { text = $"{a} + {b} = ?", result = result };
+        return new MathOperation
+        {
+            text = $"{a} + {b} = ?",
+            result = result
+        };
     }
+
 
     // Restas: a - b = r, con a <= 9 y sin resultados negativos  (ej: 4 - 3, 8 - 1)
     static MathOperation GenerateSubtraction(int maxResult)
@@ -67,7 +76,7 @@ public static class OperationGenerator
             int intermediate = addFirst ? a + b : a - b;
             int result = addFirst ? intermediate - c : intermediate + c;
 
-            if (intermediate < 0 || intermediate > 10) continue;
+            if (intermediate < 0 || intermediate > maxResult) continue;
             if (result < 0 || result > maxResult) continue;
 
             string text = addFirst ? $"{a} + {b} - {c} = ?" : $"{a} - {b} + {c} = ?";

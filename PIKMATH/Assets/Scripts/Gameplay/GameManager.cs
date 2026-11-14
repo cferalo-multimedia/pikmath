@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] FlowerField flowerField;
     [SerializeField] GameUI ui;
     [Tooltip("Image del fondo; cambia según el nivel.")]
-    [SerializeField] Image backgroundImage;
+    [SerializeField] SpriteRenderer backgroundRenderer;
 
     [Header("Ritmo")]
     [Tooltip("Pausa entre una operación y la siguiente, para ver la animación.")]
@@ -48,13 +48,18 @@ public class GameManager : MonoBehaviour
     float clockTimer;
     bool waitingNext;
     bool finished;
+    const int totalFlowersForAttack = 40;
 
-    float Progress => level.correctToComplete > 0
+    float Progress => mode == GameMode.Contrarreloj
+    ? Mathf.Clamp01((float)(correctCount * 6) / 40)
+    : level.correctToComplete > 0
         ? Mathf.Clamp01((float)correctCount / level.correctToComplete)
         : 0f;
 
     void Start()
     {
+        Debug.Log("GAME MANAGER - MODO: " + GameSession.Mode);
+        Debug.Log("GAME MANAGER - SELECCIÓN: " + GameSession.HasSelection);
         if (levels == null || levels.Length == 0)
         {
             Debug.LogError("GameManager: no hay niveles asignados.");
@@ -76,14 +81,16 @@ public class GameManager : MonoBehaviour
         levelIndex = Mathf.Clamp(levelIndex, 0, levels.Length - 1);
         level = levels[levelIndex];
 
-        if (backgroundImage != null && level.background != null)
-            backgroundImage.sprite = level.background;
+        if (backgroundRenderer != null && level.background != null)
+        backgroundRenderer.sprite = level.background;
 
         foreach (var p in pikmins) p.Clicked += OnPikminClicked;
 
         if (flowerField != null) flowerField.Clear();
 
         timer = mode == GameMode.Contrarreloj ? level.timeAttackDuration : level.timePerOperation;
+        Debug.Log("MODO REAL: " + mode);
+        Debug.Log("TIEMPO CONFIGURADO: " + timer);
         ui.SetTimer(timer);
         UpdateScoreUI();
         NextOperation();
@@ -153,15 +160,16 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            clockActive = Random.value < level.clockChance;
-            if (clockActive)
+            
+            if (!clockActive)
             {
-                clockTimer = level.clockTimeLimit;
-                ui.ShowClock(clockTimer);
-            }
-            else
-            {
-                ui.HideClock();
+                clockActive = Random.value < level.clockChance;
+
+                if (clockActive)
+                {
+                    clockTimer = level.clockTimeLimit;
+                    ui.ShowClock(clockTimer);
+                }
             }
         }
     }
@@ -182,15 +190,7 @@ public class GameManager : MonoBehaviour
         pikmin.PlayCorrect();
         ui.SetOperation(current.SolvedText);
 
-        string message = "¡Correcto!";
-        if (clockActive)
-        {
-            timer += level.clockBonus;
-            message = $"¡Correcto! +{level.clockBonus:0} s";
-            clockActive = false;
-            ui.HideClock();
-        }
-        ui.ShowMessage(message, true);
+        ui.ShowMessage("¡Correcto!", true);
 
         if (flowerField != null) flowerField.SetProgress(Progress);
         UpdateScoreUI();
@@ -201,6 +201,16 @@ public class GameManager : MonoBehaviour
             StartCoroutine(NextAfterDelay(delayBetweenOperations));
     }
 
+    public void OnClockClicked()
+    {
+        if (finished || !clockActive || PauseMenu.IsPaused) return;
+
+        timer += level.clockBonus;
+        clockActive = false;
+        ui.HideClock();
+
+        ui.ShowMessage("¡Reloj conseguido! +" + level.clockBonus + " s", true);
+    }
     void OnWrong(Pikmin pikmin)
     {
         pikmin.PlayWrong();
@@ -211,9 +221,17 @@ public class GameManager : MonoBehaviour
     {
         timer = 0f;
         ui.SetTimer(0f);
-        ui.SetOperation(current.SolvedText);   // muestra la solución para aprender de ella
-        ui.ShowMessage("¡Se acabó el tiempo!", false);
-        StartCoroutine(NextAfterDelay(delayBetweenOperations * 1.5f));
+        ui.SetOperation(current.SolvedText);
+
+        finished = true;
+        SetPikminsInteractable(false);
+        ui.HideClock();
+
+        ui.ShowEndPanel(
+            "¡Has perdido!",
+            "Se ha acabado el tiempo.",
+            false
+        );
     }
 
     IEnumerator NextAfterDelay(float delay)

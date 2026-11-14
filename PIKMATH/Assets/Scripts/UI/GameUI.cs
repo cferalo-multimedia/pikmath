@@ -23,6 +23,7 @@ public class GameUI : MonoBehaviour
     [Header("Reloj de tiempo extra (contrarreloj)")]
     [SerializeField] GameObject clockGroup;
     [SerializeField] TMP_Text clockText;
+    [SerializeField] Button clockButton;
 
     [Header("OSD (mensajes temporales)")]
     [SerializeField] TMP_Text messageText;
@@ -73,6 +74,8 @@ public class GameUI : MonoBehaviour
     public void ShowClock(float seconds)
     {
         if (clockGroup != null) clockGroup.SetActive(true);
+        Debug.Log("CLOCK GROUP ACTIVADO: " + clockGroup.activeSelf);
+        if (clockButton != null) clockButton.interactable = true;
         UpdateClock(seconds);
     }
 

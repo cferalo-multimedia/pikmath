@@ -22,4 +22,4 @@ MonoBehaviour:
   clockChance: 0.25
   clockTimeLimit: 10
   clockBonus: 5
-  background: {fileID: 0}
+  background: {fileID: -5482134500367160931, guid: 72af2ec95acfb4868956e4e652ea28a1, type: 3}
