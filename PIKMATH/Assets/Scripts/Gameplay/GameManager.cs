@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         level = levels[levelIndex];
 
         if (backgroundRenderer != null && level.background != null)
-        backgroundRenderer.sprite = level.background;
+            backgroundRenderer.sprite = level.background;
 
         foreach (var p in pikmins) p.Clicked += OnPikminClicked;
 
@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            
+
             if (!clockActive)
             {
                 clockActive = Random.value < level.clockChance;
@@ -187,6 +187,7 @@ public class GameManager : MonoBehaviour
     void OnCorrect(Pikmin pikmin)
     {
         correctCount++;
+        AudioManager.Acierto();   // sonido de acierto
         pikmin.PlayCorrect();
         ui.SetOperation(current.SolvedText);
 
@@ -204,6 +205,7 @@ public class GameManager : MonoBehaviour
     public void OnClockClicked()
     {
         if (finished || !clockActive || PauseMenu.IsPaused) return;
+        AudioManager.Reloj();     // sonido del reloj de tiempo extra
 
         timer += level.clockBonus;
         clockActive = false;
@@ -213,6 +215,7 @@ public class GameManager : MonoBehaviour
     }
     void OnWrong(Pikmin pikmin)
     {
+        AudioManager.Error();     // sonido de error
         pikmin.PlayWrong();
         ui.ShowMessage("¡Inténtalo de nuevo!", false);
     }
