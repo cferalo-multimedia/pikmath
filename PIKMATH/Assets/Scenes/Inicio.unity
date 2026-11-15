@@ -762,7 +762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
   panelFundido: {fileID: 747920893}
-  duracionFundido: 1
+  duracionFundido: 0.4
 --- !u!1 &1857299051
 GameObject:
   m_ObjectHideFlags: 0

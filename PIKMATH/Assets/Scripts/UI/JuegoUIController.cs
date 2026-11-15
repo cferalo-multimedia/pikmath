@@ -66,11 +66,20 @@ public class JuegoUIController : MonoBehaviour
     }
 
     // Abrir los ajustes desde la pausa.
+    
     public void AbrirAjustesPausa()
     {
-        panelPausa.SetActive(false);
-        panelAjustesPausa.SetActive(true);
+        // Evitar cargar Ajustes dos veces.
+        if (SceneManager.GetSceneByName("Ajustes").isLoaded)
+            return;
+
+        // Mantener la partida pausada.
+        Time.timeScale = 0f;
+
+        // Abrir Ajustes sin descargar la escena Juego.
+        SceneManager.LoadScene("Ajustes", LoadSceneMode.Additive);
     }
+
 
     // Volver al menú de pausa.
     public void VolverAPausa()

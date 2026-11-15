@@ -93,6 +93,9 @@ public class SceneTransition : MonoBehaviour
 
         cambiandoEscena = true;
 
+        // Guardar la escena actual antes de cambiar
+        SceneHistory.RecordCurrentScene();
+
         SceneManager.LoadScene(nombreEscena);
     }
 }

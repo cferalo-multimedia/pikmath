@@ -1701,7 +1701,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!224 &1564381147
 RectTransform:
@@ -1762,7 +1762,8 @@ MonoBehaviour:
   preview: {fileID: 495313170}
   nicknameInput: {fileID: 1320765687}
   messageText: {fileID: 0}
-  returnScene: Ajustes
+  returnToPreviousScene: 1
+  returnScene: MenuPrincipal
 --- !u!1 &1746203989
 GameObject:
   m_ObjectHideFlags: 0

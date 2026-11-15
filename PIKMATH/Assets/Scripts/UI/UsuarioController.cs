@@ -1,40 +1,33 @@
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Pantalla de personalización del usuario (apartado 7.2.6 del GDD).
+/// Pantalla de personalización del usuario.
 ///
-/// Botones (conecta cada OnClick a su método):
-///   boton-usuario-piel    → SiguientePiel
-///   boton-usuario-pelo    → SiguientePelo
-///   boton-usuario-cara    → SiguienteCara
-///   boton aleatorio       → Aleatorio
-///   botones de personajes → ElegirPredeterminado (con el número 0-5 en el OnClick)
-///                           o un solo botón → SiguientePredeterminado
-///   boton-usuario-guardar → Guardar
-///   boton-atras           → Volver (sale sin guardar)
+/// Permite personalizar el avatar, elegir personajes predeterminados
+/// y guardar el apodo y el avatar.
 ///
-/// Si el jugador ha elegido un personaje predeterminado y pulsa piel, pelo o cara,
-/// se vuelve automáticamente al avatar personalizado.
+/// Al salir, regresa automáticamente a la escena desde la que se entró.
 /// </summary>
 public class UsuarioController : MonoBehaviour
 {
     [Header("Referencias")]
     [SerializeField] AvatarView preview;
 
-    [Tooltip("Campo para escribir el apodo (TextMeshPro - Input Field).")]
+    [Tooltip("Campo para escribir el apodo.")]
     [SerializeField] TMP_InputField nicknameInput;
 
-    [Tooltip("Opcional: texto para avisos (por ejemplo, «Escribe tu apodo»).")]
+    [Tooltip("Texto opcional para mostrar avisos.")]
     [SerializeField] TMP_Text messageText;
 
     [Header("Navegación")]
-    [Tooltip("Si está activado, al guardar o salir vuelve a la escena desde la que se entró (Ajustes o MenuPrincipal).")]
+    [Tooltip("Si está activado, vuelve a la escena desde la que se entró.")]
     [SerializeField] bool returnToPreviousScene = true;
 
-    [Tooltip("Escena a la que vuelve si no se sabe cuál es la anterior (por ejemplo, al probar la escena directamente).")]
-    [SerializeField] string returnScene = "Ajustes";
+    [Tooltip("Escena de destino si no existe una escena anterior.")]
+    [SerializeField] string returnScene = "MenuPrincipal";
 
     AvatarData current;
     AvatarCatalog catalog;
@@ -49,13 +42,19 @@ public class UsuarioController : MonoBehaviour
     {
         if (preview == null || preview.Catalog == null)
         {
-            Debug.LogError("UsuarioController: falta la vista previa o su catálogo de avatares.", this);
+            Debug.LogError(
+                "UsuarioController: falta la vista previa o su catálogo de avatares.",
+                this
+            );
             enabled = false;
             return;
         }
 
         catalog = preview.Catalog;
-        current = PlayerProfile.HasProfile ? catalog.Validate(PlayerProfile.Avatar) : AvatarData.Default;
+
+        current = PlayerProfile.HasProfile
+            ? catalog.Validate(PlayerProfile.Avatar)
+            : AvatarData.Default;
 
         if (nicknameInput != null)
         {
@@ -69,15 +68,46 @@ public class UsuarioController : MonoBehaviour
 
     // ===== Avatar personalizado =====
 
-    public void SiguientePiel()    { current.skinIndex = Cycle(current.skinIndex, catalog.skins, +1); UseCustom(); }
-    public void AnteriorPiel()     { current.skinIndex = Cycle(current.skinIndex, catalog.skins, -1); UseCustom(); }
-    public void SiguientePelo()    { current.hairIndex = Cycle(current.hairIndex, catalog.hairs, +1); UseCustom(); }
-    public void AnteriorPelo()     { current.hairIndex = Cycle(current.hairIndex, catalog.hairs, -1); UseCustom(); }
-    public void SiguienteCara()    { current.faceIndex = Cycle(current.faceIndex, catalog.faces, +1); UseCustom(); }
-    public void AnteriorCara()     { current.faceIndex = Cycle(current.faceIndex, catalog.faces, -1); UseCustom(); }
+    public void SiguientePiel()
+    {
+        current.skinIndex = Cycle(current.skinIndex, catalog.skins, +1);
+        UseCustom();
+    }
 
-    /// <summary>Vuelve al avatar personalizado manteniendo la piel, el pelo y la cara elegidos.</summary>
-    public void UsarPersonalizado() { UseCustom(); }
+    public void AnteriorPiel()
+    {
+        current.skinIndex = Cycle(current.skinIndex, catalog.skins, -1);
+        UseCustom();
+    }
+
+    public void SiguientePelo()
+    {
+        current.hairIndex = Cycle(current.hairIndex, catalog.hairs, +1);
+        UseCustom();
+    }
+
+    public void AnteriorPelo()
+    {
+        current.hairIndex = Cycle(current.hairIndex, catalog.hairs, -1);
+        UseCustom();
+    }
+
+    public void SiguienteCara()
+    {
+        current.faceIndex = Cycle(current.faceIndex, catalog.faces, +1);
+        UseCustom();
+    }
+
+    public void AnteriorCara()
+    {
+        current.faceIndex = Cycle(current.faceIndex, catalog.faces, -1);
+        UseCustom();
+    }
+
+    public void UsarPersonalizado()
+    {
+        UseCustom();
+    }
 
     void UseCustom()
     {
@@ -87,7 +117,6 @@ public class UsuarioController : MonoBehaviour
 
     // ===== Aleatorio =====
 
-    /// <summary>Combina al azar piel, pelo y cara (siempre distinto del avatar actual).</summary>
     public void Aleatorio()
     {
         AvatarData before = current;
@@ -103,6 +132,7 @@ public class UsuarioController : MonoBehaviour
                 && current.skinIndex == before.skinIndex
                 && current.hairIndex == before.hairIndex
                 && current.faceIndex == before.faceIndex;
+
             if (!same) break;
         }
 
@@ -111,12 +141,13 @@ public class UsuarioController : MonoBehaviour
 
     static int RandomIndex(Sprite[] list)
     {
-        return (list == null || list.Length == 0) ? 0 : Random.Range(0, list.Length);
+        return (list == null || list.Length == 0)
+            ? 0
+            : Random.Range(0, list.Length);
     }
 
     // ===== Avatares predeterminados =====
 
-    /// <summary>Para un botón por personaje: en el OnClick escribe su número (0, 1, 2...).</summary>
     public void ElegirPredeterminado(int index)
     {
         current.presetIndex = index;
@@ -126,9 +157,9 @@ public class UsuarioController : MonoBehaviour
 
     public void SiguientePredeterminado()
     {
-        // Si venimos del personalizado, empezamos por el personaje actual sin avanzar
         if (current.usePreset)
             current.presetIndex = Cycle(current.presetIndex, catalog.presets, +1);
+
         current.usePreset = true;
         Refresh();
     }
@@ -137,6 +168,7 @@ public class UsuarioController : MonoBehaviour
     {
         if (current.usePreset)
             current.presetIndex = Cycle(current.presetIndex, catalog.presets, -1);
+
         current.usePreset = true;
         Refresh();
     }
@@ -145,7 +177,9 @@ public class UsuarioController : MonoBehaviour
 
     public void Guardar()
     {
-        string nickname = nicknameInput != null ? PlayerProfile.CleanNickname(nicknameInput.text) : "";
+        string nickname = nicknameInput != null
+            ? PlayerProfile.CleanNickname(nicknameInput.text)
+            : "";
 
         if (nicknameInput != null && nickname.Length == 0)
         {
@@ -153,22 +187,50 @@ public class UsuarioController : MonoBehaviour
             return;
         }
 
+        // Guardar el apodo y el avatar.
         PlayerProfile.Save(nickname, current);
+
+        // Volver a la escena desde la que se entró.
         Volver();
     }
 
-    /// <summary>Sale sin guardar los cambios.</summary>
+    /// <summary>
+    /// Sale de la personalización.
+    /// Si se pulsa Volver, no guarda los cambios.
+    /// </summary>
+    
     public void Volver()
     {
+        // Recuperar el destino específico desde el que se abrió Usuario.
         string target = returnScene;
-        if (returnToPreviousScene && !string.IsNullOrEmpty(SceneHistory.Previous))
-            target = SceneHistory.Previous;
 
+        if (returnToPreviousScene &&
+            !string.IsNullOrEmpty(SceneHistory.UsuarioReturnScene))
+        {
+            target = SceneHistory.UsuarioReturnScene;
+        }
+
+        // Si estamos dentro de una partida pausada,
+        // descargamos solamente Usuario.
+        Scene juego = SceneManager.GetSceneByName("Juego");
+
+        if (juego.IsValid() && juego.isLoaded)
+        {
+            SceneManager.UnloadSceneAsync("Usuario");
+            return;
+        }
+
+        // Volver a la escena correspondiente sin fundido.
         if (transicion != null)
-            transicion.LoadSceneWithFade(target);
+        {
+            transicion.LoadSceneWithoutFade(target);
+        }
         else
+        {
             SceneManager.LoadScene(target);
+        }
     }
+
 
     // ===== Utilidades =====
 
@@ -180,6 +242,7 @@ public class UsuarioController : MonoBehaviour
     void ShowMessage(string message)
     {
         if (messageText == null) return;
+
         messageText.text = message;
         messageText.gameObject.SetActive(!string.IsNullOrEmpty(message));
     }
@@ -187,6 +250,7 @@ public class UsuarioController : MonoBehaviour
     static int Cycle(int index, Sprite[] list, int step)
     {
         if (list == null || list.Length == 0) return 0;
+
         int n = list.Length;
         return ((index + step) % n + n) % n;
     }

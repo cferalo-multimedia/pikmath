@@ -1,4 +1,6 @@
+
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPrincipalController : MonoBehaviour
 {
@@ -23,7 +25,7 @@ public class MenuPrincipalController : MonoBehaviour
         IrASeleccionNiveles();
     }
 
-    // Abrir selección de niveles sin fundido de salida.
+    // Abrir selección de niveles sin fundido.
     private void IrASeleccionNiveles()
     {
         if (transicion != null)
@@ -33,6 +35,21 @@ public class MenuPrincipalController : MonoBehaviour
         else
         {
             Debug.LogError("No se encuentra SceneTransition en Canvas.");
+        }
+    }
+
+    // Abrir Usuario desde el menú principal.
+    public void AbrirUsuario()
+    {
+        SceneHistory.SetUsuarioReturnScene("MenuPrincipal");
+
+        if (transicion != null)
+        {
+            transicion.LoadSceneWithoutFade("Usuario");
+        }
+        else
+        {
+            SceneManager.LoadScene("Usuario");
         }
     }
 }
